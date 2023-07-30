@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <!-- Your title. -->
+        <title>Your Network - Portal</title>
+
+        <!-- Favicon -->
+        <link href="path/to/favicon.png" rel="icon">
+
+        <!-- Import FontAwesome 5, free version. -->
+        <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
+
+        <!-- Import jQuery -->
+        <script src="assets/js/jquery-3.2.1.min.js.last ned"></script>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/ipblock.css">
+
+        <!-- Import IP block data -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.1/clipboard.min.js"></script> 
+        <script src="https://mcapi.us/scripts/minecraft.js"></script>
+
+	</head>
+
+	<body style="background-image:url('assets/img/background.png'); background-repeat: no-repeat, repeat; background-size: cover;">
+
+		<div id="the-header">
+
+			<div id="header-top">
+
+				<div id="header-top-container" class="content-container">
+
+					<ul id="the-nav" class="the-nav">
+
+						<li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+
+						<li><a href="#"><i class="fa fa-comments"></i> Forums</a></li>
+
+						<li><a href="#"><i class="fab fa-discord"></i> Discord</a></li>
+    
+                        <!-- More can be added, check out fontawesome.com for more icons -->
+
+					</ul>
+
+				</div>
+
+			</div>
+
+			<div id="header-bottom">
+
+				<div id="the-logo">
+
+					<a href="https://woodpunchsgraphics.com/collections/minecraft-server-logo-maker/products/ender-world">
+
+                        <!-- Image by woodpunch's graphics -->
+					    <img src="assets/img/logo.png" alt="">
+
+					</a>
+
+				</div>
+
+                <!-- IP block -->
+
+                <script>
+                MinecraftAPI.getServerStatus('YOUR-IP-HERE', {
+                    port: 25565
+                  }, function (err, status) {
+                    if(status.online == false){
+                        return document.querySelector('#serverdata').innerHTML = 'Server offline!';
+                    }
+                    if (err) {
+                      return document.querySelector('#serverdata').innerHTML = 'Server offline!';
+                    }else{
+                document.querySelector('.player_count').innerHTML = '<span class="player_count">'
+                    + status.players.now + '</span>';
+                  }
+                });
+                </script>
+
+                <ul>
+                    <li class="playercounter">
+                        <a id="serverdata">Join <font size="3" color="#51ABF7"><b><span class="player_count"></span></b></font> other players on <font size="3" color="#51ABF7"><b><span id="ClickToCopy" data-clipboard-text="YOUR-IP-HERE" title="Click to copy">YOUR-IP-HERE</span></b></font></a>
+                    </li>
+                </ul>
+
+            <script>
+                $('#ClickToCopy').click(function() {
+                $(this).queue(function() {
+                $(this).html('<span> IP Copied </span>').delay(2000).dequeue();
+                })
+                $(this).queue(function() {
+                $(this).html('<span>YOUR-IP-HERE</span>').dequeue();
+                })
+                });
+            </script>                
+            <br>
+            <br>
+            <!-- IP block -->
+
+			</div>
+
+		</div>
+
+		<nav>
+
+			<ul>
+
+				<li>
+
+					<a href="#">
+
+						<img src="assets/img/home1.png" alt="forums1">
+
+						<img src="assets/img/home1.png" alt="forums2">
+
+						<span data-hover="Home">Forums</span>
+
+					</a>
+
+				</li>
+
+				<li>
+
+					<a href="#">
+
+						<img src="assets/img/shop1.png" alt="Store1">
+
+						<img src="assets/img/shop2.png" alt="Store2">
+
+						<span data-hover="Store">Store</span>
+
+					</a>
+
+				</li>
+
+				<li>
+
+					<a href="#">
+
+						<img src="assets/img/vote1.png" alt="Vote1">
+
+						<img src="assets/img/vote2.png" alt="Vote2">
+
+						<span data-hover="Vote">Vote</span>
+
+					</a>
+
+				</li>
+
+				<li>
+
+					<a href="#">
+
+						<img src="assets/img/forums1.png" alt="Bans1">
+
+						<img src="assets/img/forums2.png" alt="Bans2">
+
+						<span data-hover="Bans">Bans</span>
+
+					</a>
+
+				</li>
+
+			</ul>
+
+		</nav>
+
+		<footer>
+
+			<div id="copyright">
+
+				<p>Copyright &copy; Your Network</p>
+
+			</div>
+
+		</footer>
+
+    </body>
+</html>
